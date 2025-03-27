@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <main>
+    <h1>Contact Us</h1>
+    <p>For any inquiries, feel free to reach out to us at "someone's email"</p>
+  </main>
+<script>
+  // Dynamically load navbar
+  fetch('navbar.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+          });
+</script>
+</body>
+</html>

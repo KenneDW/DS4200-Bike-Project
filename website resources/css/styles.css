@@ -1,0 +1,70 @@
+/* styles.css */
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+/* Navbar container */
+.navbar {
+    background-color: #2c3e50;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Nav list */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav items */
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #f39c12;
+}
+
+#intro {
+    width: 60%;
+    margin: 0 auto 0;
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #intro {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
+
+#intro h1 {
+
+}
+#intro p {
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
