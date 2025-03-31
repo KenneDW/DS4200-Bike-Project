@@ -26,6 +26,9 @@ def main():
     df_final["started_at"] = pd.to_datetime(df_final["started_at"], format = "ISO8601")
     df_final["ended_at"] = pd.to_datetime(df_final["ended_at"], format = "ISO8601")
 
+    df_final["duration"] = (df_final["ended_at"] - df_final["started_at"])
+
+
     df_final.to_csv(project_root + "/data/trip_data.csv")
 
 if __name__ == "__main__":
