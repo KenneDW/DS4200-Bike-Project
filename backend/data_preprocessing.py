@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 
-
 def main():
 
     current_file = os.path.abspath(__file__)
@@ -23,13 +22,17 @@ def main():
 
     df_final = df_final.dropna()
 
+
+
     df_final["started_at"] = pd.to_datetime(df_final["started_at"], format = "ISO8601")
     df_final["ended_at"] = pd.to_datetime(df_final["ended_at"], format = "ISO8601")
+    print(df_final.dtypes)
 
-    df_final["duration"] = (df_final["ended_at"] - df_final["started_at"])
+
+    df_final["duration"] = (df_final["ended_at"] - df_final["started_at"]).dt.total_seconds() / 60
 
 
-    df_final.to_csv(project_root + "/data/trip_data.csv")
+    df_final.to_csv(project_root + "/data/trip_data.csv", index = False)
 
 if __name__ == "__main__":
     main()

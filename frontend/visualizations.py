@@ -16,7 +16,7 @@ def main():
     trips = pd.read_csv(project_root + "/data/trip_data.csv")
 
     box_category_selection = alt.binding_select(options=["rideable_type", "member_casual"], name="Group By: ")
-    selection = alt.selection_point(fields = ['xvar'], bind = box_category_selection, value=[{"xvar": "rideable_type"}])
+    selection = alt.selection_point(bind = box_category_selection, value=[{"xvar": "rideable_type"}])
 
     # Create a box plot
     box_plot = alt.Chart(trips).mark_boxplot().encode(
@@ -26,7 +26,6 @@ def main():
         xvar="datum[selection.xvar]"
     )
 
-    # box_plot.save("box.html")
 
 
 if __name__ == "__main__":
