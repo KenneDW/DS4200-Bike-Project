@@ -23,7 +23,6 @@ def main():
     df_final = df_final.dropna()
 
 
-
     df_final["started_at"] = pd.to_datetime(df_final["started_at"], format = "ISO8601")
     df_final["ended_at"] = pd.to_datetime(df_final["ended_at"], format = "ISO8601")
     print(df_final.dtypes)
@@ -31,6 +30,9 @@ def main():
 
     df_final["duration"] = (df_final["ended_at"] - df_final["started_at"]).dt.total_seconds() / 60
 
+    # Drop extreme outlier in trip duration
+    q = df_final["duration"].quantile(0.99)
+    df_final = df_final[df_final["duration"] < q]
 
     df_final.to_csv(project_root + "/data/trip_data.csv", index = False)
 

@@ -17,13 +17,7 @@ trips = pd.read_csv(project_root + "/data/trip_data.csv")
 
 def category_hist(x):
     fig = plt.figure(figsize = (7, 4))
-    Q1 = trips["duration"].quantile(0.25)
-    Q3 = trips["duration"].quantile(0.75)
-    IQR = Q3 - Q1
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
-    trips["duration"] = trips["duration"].clip(lower_bound, upper_bound) 
-    sns.boxplot(x = trips[x], y = trips["duration"])
+    sns.boxplot(x = trips[x], y = trips["duration"], showfliers = False)
     plt.xlabel(x)
     plt.ylabel("Duration")
     plt.title(f"Box and Whisker plot of ride duration by {x}")
