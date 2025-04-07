@@ -1,32 +1,41 @@
 """
-This script when run creates and saves all the figures embedded in our project webpage
+This script generates out visualizations
 """
 
 import altair as alt
 import pandas as pd
 import geopandas as gpd
 import os
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+current_file = os.path.abspath(__file__)
+project_root = os.path.abspath(os.path.join(current_file, "../../"))
+stations = pd.read_csv(project_root + "/data/current_bluebikes_stations.csv")
+trips = pd.read_csv(project_root + "/data/trip_data.csv")
 
 
+def category_hist(x):
+    fig = plt.figure(figsize = (7, 4))
+    Q1 = trips["duration"].quantile(0.25)
+    Q3 = trips["duration"].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    trips["duration"] = trips["duration"].clip(lower_bound, upper_bound) 
+    sns.boxplot(x = trips[x], y = trips["duration"])
+    plt.xlabel(x)
+    plt.ylabel("Duration")
+    plt.title(f"Box and Whisker plot of ride duration by {x}")
+    plt.tight_layout()
+    return fig
 
 def main():
+    print("Your ran the visualizations file")
     current_file = os.path.abspath(__file__)
     project_root = os.path.abspath(os.path.join(current_file, "../../"))
     stations = pd.read_csv(project_root + "/data/current_bluebikes_stations.csv")
     trips = pd.read_csv(project_root + "/data/trip_data.csv")
-
-    box_category_selection = alt.binding_select(options=["rideable_type", "member_casual"], name="Group By: ")
-    selection = alt.selection_point(bind = box_category_selection, value=[{"xvar": "rideable_type"}])
-
-    # Create a box plot
-    box_plot = alt.Chart(trips).mark_boxplot().encode(
-        x=alt.X('xvar:N', title="Selected Category").scale(domain=list(trips.columns)),
-        y=alt.Y('value:Q', title="Value"),
-    ).add_params(selection).transform_calculate(
-        xvar="datum[selection.xvar]"
-    )
-
-
 
 if __name__ == "__main__":
     main()
