@@ -30,6 +30,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
 </head>
 <body>
     <div id="navbar"></div>
@@ -60,11 +61,30 @@
         <div class="card">
             <section class="viz-2">
                 <h3>Visualization 2</h3>
+                <div id="viz2-container" class="visualization-container">
+                    <img src="from_map.png" width="800" height="550" alt="trips from ruggles map">
+                </div>
+                <div id="viz2-container" class="visualization-container">
+                    <img src="to_map.png" width="800" height="550" alt="trips to ruggles map">
+                </div>
+                <p class="viz-deescription">
+                    These two maps showcase all of the trips made to and from the ruggles station in the time window we examined.
+                    The first map shows the trips made originating at the ruggles station, while the second map shows the trips made 
+                    that ended at the ruggles station. The points indicate stations, with the color of the points encoded according to 
+                    the number of trips originating from/ending at that station, logarithmically scaled. The outgoing map shows that most 
+                    activity is clustered around the ruggles station, indicating shorter trips overall to neighborhoods like Fenway, 
+                    Back Bay, and Jamaica Plain. The incoming map shows rides being much more evenly distriubted across the city, with 
+                    some closeby stations still having the the most activity. One possible explanantion of this trend is the fact that 
+                    ruggles is a transportation hub, with connections to the orange line, commuter rail, and many bus routes. 
+                    People taking bluebikes to ruggles may be using them as a part of a longer trip. 
+                </p>
             </section>
         </div>
         <div class="card">
             <section class="viz-3">
                 <h3>Visualization 3</h3>
+                <svg id="chart"></svg>
+                <script>src="visualization.js" </script>
             </section>
         </div>
         <div class="card">
@@ -117,5 +137,6 @@
             }
         });
     </script>
+
 </body>
 </html>
