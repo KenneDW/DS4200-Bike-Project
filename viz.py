@@ -117,8 +117,47 @@ def plt4():
                 yanchor="top")])
     fig.write_html("viz4_plotly.html", include_plotlyjs='cdn', full_html=False)
 
+def plt5():
+    df = pd.read_csv("data/trip_data.csv")
+
+    df['started_at'] = pd.to_datetime(df['started_at'])
+    df['hour'] = df['started_at'].dt.hour
+    df['day_of_week'] = df['started_at'].dt.day_name().str[:3]
+    df['month'] = df['started_at'].dt.month_name()
+
+    agg_df = df.groupby(['month', 'day_of_week', 'hour']).size().reset_index(name='ride_count')
+
+    day_order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+    # Make selector
+    month_select = alt.selection_point(
+        fields=['month'],
+        bind=alt.binding_select(options=agg_df['month'].unique().tolist(), name='Month:'),
+        value={'month': 'April'}
+    )
+
+    # Build the heatmap
+    chart = alt.Chart(agg_df).mark_rect().encode(
+        x=alt.X('hour:O', title='Hour of Day'),
+        y=alt.Y('day_of_week:N', sort=day_order, title='Day of Week'),
+        color=alt.Color('ride_count:Q', scale=alt.Scale(scheme='blues'), title='Number of Rides'),
+        tooltip=['day_of_week:N', 'hour:O', 'ride_count:Q']
+    ).add_params(
+        month_select
+    ).transform_filter(
+        month_select
+    ).properties(
+        width=500,
+        height=300,
+        title='Bluebike Rides by Day of Week and Hour'
+    )
+
+    chart.save("altair_heatmap.html")
+
+
 def main():
     plt1()
-    plt4() 
+    plt4()
+    plt5()
 if __name__ == "__main__":
     main()
