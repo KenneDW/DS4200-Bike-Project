@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--
     REQUIREMENTS:
@@ -25,46 +26,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Home</title>
-    
+
     <!-- Vega-Lite libraries for Altair visualization -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src='https://d3js.org/d3.v7.min.js'></script>
 </head>
+
 <body>
     <div id="navbar"></div>
     <main>
         <div class="card">
             <section class="intro">
                 <h1>Introduction</h1>
-                <p>Many Northeastern students lead busy commuting lives, navigating between co-ops, classes, housing, and throughout our lovely city of Boston. There is a schism that arises
-                     in that busy life though, something difficult for not only Northeastern students but for working adults: time management. Managing getting to and from classes, making it off campus to meet
-                     your friends out for dinner, or even just getting to the grocery store can be a hassle. From our experience, one of the most common ways students do this is by utilizing Bluebikes, Boston's
-                     self powered transit system that allows you to get around the city with ease. Going into this project, we wanted to learn how people at Northeastern are using Bluebikes throughout the year.
-                     So, we decided to research one month from each season during the school year to find out more.
+                <p>Many Northeastern students lead busy commuting lives, navigating between co-ops, classes, housing,
+                    and throughout our lovely city of Boston. There is a schism that arises
+                    in that busy life though, something difficult for not only Northeastern students but for working
+                    adults: time management. Managing getting to and from classes, making it off campus to meet
+                    your friends out for dinner, or even just getting to the grocery store can be a hassle. From our
+                    experience, one of the most common ways students do this is by utilizing Bluebikes, Boston's
+                    self powered transit system that allows you to get around the city with ease. Going into this
+                    project, we wanted to learn how people at Northeastern are using Bluebikes throughout the year.
+                    So, we decided to research one month from each season during the school year to find out more.
                 </p>
                 <p>
-                     Questions we wanted to answer included:
+                    Questions we wanted to answer included:
                 </p>
                 <p>
-                     Reference papers:
-                     <ul>
-                        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7490554/">PubMed Central</a></li>
-                        <li><a href="https://senseable.mit.edu/papers/pdf/20200617_Ljubenkov-etal_OptimizingBSS_IEEE%20E-TEMS%20Conference.pdf">MIT Study</a></li>
-                      </ul>
+                    Reference papers:
+                <ul>
+                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7490554/">PubMed Central</a></li>
+                    <li><a
+                            href="https://senseable.mit.edu/papers/pdf/20200617_Ljubenkov-etal_OptimizingBSS_IEEE%20E-TEMS%20Conference.pdf">MIT
+                            Study</a></li>
+                </ul>
                 </p>
             </section>
         </div>
         <div class="card">
             <section class="data-intro">
                 <h2>Introducing the data</h2>
-                <p>For our research, we decided to retrieve our data straight from the Bluebike website, which provides comprehensive trip information for every month since 2016. To keep our analysis focused and up to date, we used only the months of April, September, and December of 2024, representing three different points in the school year. To support our mapping visualizations, we retrieved a shapefile for Massachusetts from the official Massachusetts government website. 
+                <p>For our research, we decided to retrieve our data straight from the Bluebike website, which provides
+                    comprehensive trip information for every month since 2016. To keep our analysis focused and up to
+                    date, we used only the months of April, September, and December of 2024, representing three
+                    different points in the school year. To support our mapping visualizations, we retrieved a shapefile
+                    for Massachusetts from the official Massachusetts government website.
                     <br><br>
-                    For our Bluebike data, each month contains approximately 600,000 rows of data. However, as we are only wanting to study Northeastern University usage, we filtered the data by only keeping the stops going to or from our campus. In doing this we were able to get one dataset that combined each month down to only 17,000 rows.
+                    For our Bluebike data, each month contains approximately 600,000 rows of data. However, as we are
+                    only wanting to study Northeastern University usage, we filtered the data by only keeping the stops
+                    going to or from our campus. In doing this we were able to get one dataset that combined each month
+                    down to only 17,000 rows.
                     <br><br>
-                    Regarding the attributes of our data, we were given an extensive list of features for analysis. Each file contains the start and end points (coordinates, ID, name), time taken, member type, bike type, and the trip ID. These features provided a solid foundation that allowed us to further investigate how the Northeastern community utilizes Bluebikes throughout the academic year.
-                    </p>
+                    Regarding the attributes of our data, we were given an extensive list of features for analysis. Each
+                    file contains the start and end points (coordinates, ID, name), time taken, member type, bike type,
+                    and the trip ID. These features provided a solid foundation that allowed us to further investigate
+                    how the Northeastern community utilizes Bluebikes throughout the academic year.
+                </p>
             </section>
         </div>
         <div class="card">
@@ -72,14 +90,22 @@
                 <h3>Visualization 1</h3>
                 <div id="viz1-container" class="visualization-container"></div>
                 <p class="viz-description">
-                    From this visualization, we just wanted to get a general feel for how each attribute was different for each of the three months.
-                     Starting by analyzing the chart looking at member types, we can see that casual users by far had the largest amount of trips, with the highest overall
-                      amount of trips being in September. April followed with a moderate amount of usage, and December had a major drop, which we believe we can attribute
-                       to the influx of cold weather and winter break. From the visualization showing the bike types, we can see that people overwhelmingly favored the classic
-                        bikes over the electric bikes in each of the months without much of a change in the ratio. Finally, when looking at the average ride duration for each
-                         of the months we can see that the time was fairly consistent throughout each of them. There was a slight decline in December at an average of ten minutes
-                          as opposed to the twelve in April and September, which we again believe we can attribute to the colder weather. Overall, this data showed us that there was
-                           a strong difference in usage between the seasons and that there is a preference in bike and member types.
+                    From this visualization, we just wanted to get a general feel for how each attribute was different
+                    for each of the three months.
+                    Starting by analyzing the chart looking at member types, we can see that casual users by far had the
+                    largest amount of trips, with the highest overall
+                    amount of trips being in September. April followed with a moderate amount of usage, and December had
+                    a major drop, which we believe we can attribute
+                    to the influx of cold weather and winter break. From the visualization showing the bike types, we
+                    can see that people overwhelmingly favored the classic
+                    bikes over the electric bikes in each of the months without much of a change in the ratio. Finally,
+                    when looking at the average ride duration for each
+                    of the months we can see that the time was fairly consistent throughout each of them. There was a
+                    slight decline in December at an average of ten minutes
+                    as opposed to the twelve in April and September, which we again believe we can attribute to the
+                    colder weather. Overall, this data showed us that there was
+                    a strong difference in usage between the seasons and that there is a preference in bike and member
+                    types.
                 </p>
             </section>
         </div>
@@ -92,24 +118,51 @@
                 <div id="viz2-container" class="visualization-container">
                     <img src="to_map.png" width="800" height="550" alt="trips to ruggles map">
                 </div>
-                <p class="viz-deescription">
-                    These two maps showcase all of the trips made to and from the ruggles station in the time window we examined.
-                    The first map shows the trips made originating at the ruggles station, while the second map shows the trips made 
-                    that ended at the ruggles station. The points indicate stations, with the color of the points encoded according to 
-                    the number of trips originating from/ending at that station, logarithmically scaled. The outgoing map shows that most 
-                    activity is clustered around the ruggles station, indicating shorter trips overall to neighborhoods like Fenway, 
-                    Back Bay, and Jamaica Plain. The incoming map shows rides being much more evenly distriubted across the city, with 
-                    some closeby stations still having the the most activity. One possible explanantion of this trend is the fact that 
-                    ruggles is a transportation hub, with connections to the orange line, commuter rail, and many bus routes. 
-                    People taking bluebikes to ruggles may be using them as a part of a longer trip. 
+                <p class="viz-description">
+                    These two maps showcase all of the trips made to and from the ruggles station in the time window we
+                    examined.
+                    The first map shows the trips made originating at the ruggles station, while the second map shows
+                    the trips made
+                    that ended at the ruggles station. The points indicate stations, with the color of the points
+                    encoded according to
+                    the number of trips originating from/ending at that station, logarithmically scaled. The outgoing
+                    map shows that most
+                    activity is clustered around the ruggles station, indicating shorter trips overall to neighborhoods
+                    like Fenway,
+                    Back Bay, and Jamaica Plain. The incoming map shows rides being much more evenly distriubted across
+                    the city, with
+                    some closeby stations still having the the most activity. One possible explanantion of this trend is
+                    the fact that
+                    ruggles is a transportation hub, with connections to the orange line, commuter rail, and many bus
+                    routes.
+                    People taking bluebikes to ruggles may be using them as a part of a longer trip.
                 </p>
             </section>
         </div>
         <div class="card">
             <section class="viz-3">
                 <h3>Visualization 3</h3>
-                <svg id="chart"></svg>
-                <script>src="visualization.js" </script>
+                <svg id="lineplot"></svg>
+                <script src="./js/visualization.js"></script>
+                <p class="viz-description">
+                    This chart indicates the amount of rides starting in each hour of the day, over the course an entire
+                    month
+                    for the Ruggles station. The x-axis shows the hour of the day, while the y-axis shows the number of
+                    rides
+                    starting at that hour. This chart once again gives persepctive on the difference in quantity of
+                    rides between
+                    the months we are examining with drastic differneces between them. The main trend demonstrated by
+                    this chart
+                    is the peak times of day by quantity of rides. There are consistent peaks across all three months
+                    between the hours of 7 and 9 in the morning, and
+                    4 and 6 in the evening. This indicates that the majority of rides are being taken during commuting
+                    hours,
+                    despite the fact that the station is located near a college campus where most people typically don't
+                    need to commute. The commuting trend still being present
+                    could be due to factors such as Northeastern's co-op program, or the nearby orange line and
+                    residential areas making
+                    the station a popular stop for commuters.
+                </p>
             </section>
         </div>
         <div class="card">
@@ -137,10 +190,10 @@
                 document.getElementById('navbar').innerHTML = data;
             });
     </script>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-29dfe9444e3a0352eca7b64e7bc2d107"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "subcategory", "scale": {"scheme": "pastel1"}, "title": "Subcategory", "type": "nominal"}, "tooltip": [{"field": "month", "type": "nominal"}, {"field": "subcategory", "type": "nominal"}, {"field": "count", "type": "quantitative"}], "x": {"axis": {"labelAngle": -40}, "field": "month", "title": "Month", "type": "nominal"}, "y": {"field": "count", "title": "Count", "type": "quantitative"}}, "height": 400, "params": [{"name": "CategorySelector", "bind": {"input": "select", "options": ["Bike Type", "Member Type", "Average Duration"], "name": "Y Axis: "}, "value": "Bike Type"}], "title": {"text": "Monthly Trip Data", "fontSize": 18}, "transform": [{"filter": "(datum.category === CategorySelector)"}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-29dfe9444e3a0352eca7b64e7bc2d107": [{"month": "2024-04", "subcategory": "classic_bike", "count": 4587.0, "category": "Bike Type"}, {"month": "2024-04", "subcategory": "electric_bike", "count": 1474.0, "category": "Bike Type"}, {"month": "2024-09", "subcategory": "classic_bike", "count": 7548.0, "category": "Bike Type"}, {"month": "2024-09", "subcategory": "electric_bike", "count": 1733.0, "category": "Bike Type"}, {"month": "2024-12", "subcategory": "classic_bike", "count": 1771.0, "category": "Bike Type"}, {"month": "2024-12", "subcategory": "electric_bike", "count": 699.0, "category": "Bike Type"}, {"month": "2024-04", "subcategory": "casual", "count": 1494.0, "category": "Member Type"}, {"month": "2024-04", "subcategory": "member", "count": 4567.0, "category": "Member Type"}, {"month": "2024-09", "subcategory": "casual", "count": 2765.0, "category": "Member Type"}, {"month": "2024-09", "subcategory": "member", "count": 6516.0, "category": "Member Type"}, {"month": "2024-12", "subcategory": "casual", "count": 459.0, "category": "Member Type"}, {"month": "2024-12", "subcategory": "member", "count": 2011.0, "category": "Member Type"}, {"month": "2024-04", "subcategory": "Average Duration", "count": 11.971965572237803, "category": "Average Duration"}, {"month": "2024-09", "subcategory": "Average Duration", "count": 11.986394840714004, "category": "Average Duration"}, {"month": "2024-12", "subcategory": "Average Duration", "count": 11.049911396761134, "category": "Average Duration"}]}}
+            const spec = { "config": { "view": { "continuousWidth": 300, "continuousHeight": 300 } }, "data": { "name": "data-29dfe9444e3a0352eca7b64e7bc2d107" }, "mark": { "type": "bar" }, "encoding": { "color": { "field": "subcategory", "scale": { "scheme": "pastel1" }, "title": "Subcategory", "type": "nominal" }, "tooltip": [{ "field": "month", "type": "nominal" }, { "field": "subcategory", "type": "nominal" }, { "field": "count", "type": "quantitative" }], "x": { "axis": { "labelAngle": -40 }, "field": "month", "title": "Month", "type": "nominal" }, "y": { "field": "count", "title": "Count", "type": "quantitative" } }, "height": 400, "params": [{ "name": "CategorySelector", "bind": { "input": "select", "options": ["Bike Type", "Member Type", "Average Duration"], "name": "Y Axis: " }, "value": "Bike Type" }], "title": { "text": "Monthly Trip Data", "fontSize": 18 }, "transform": [{ "filter": "(datum.category === CategorySelector)" }], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": { "data-29dfe9444e3a0352eca7b64e7bc2d107": [{ "month": "2024-04", "subcategory": "classic_bike", "count": 4587.0, "category": "Bike Type" }, { "month": "2024-04", "subcategory": "electric_bike", "count": 1474.0, "category": "Bike Type" }, { "month": "2024-09", "subcategory": "classic_bike", "count": 7548.0, "category": "Bike Type" }, { "month": "2024-09", "subcategory": "electric_bike", "count": 1733.0, "category": "Bike Type" }, { "month": "2024-12", "subcategory": "classic_bike", "count": 1771.0, "category": "Bike Type" }, { "month": "2024-12", "subcategory": "electric_bike", "count": 699.0, "category": "Bike Type" }, { "month": "2024-04", "subcategory": "casual", "count": 1494.0, "category": "Member Type" }, { "month": "2024-04", "subcategory": "member", "count": 4567.0, "category": "Member Type" }, { "month": "2024-09", "subcategory": "casual", "count": 2765.0, "category": "Member Type" }, { "month": "2024-09", "subcategory": "member", "count": 6516.0, "category": "Member Type" }, { "month": "2024-12", "subcategory": "casual", "count": 459.0, "category": "Member Type" }, { "month": "2024-12", "subcategory": "member", "count": 2011.0, "category": "Member Type" }, { "month": "2024-04", "subcategory": "Average Duration", "count": 11.971965572237803, "category": "Average Duration" }, { "month": "2024-09", "subcategory": "Average Duration", "count": 11.986394840714004, "category": "Average Duration" }, { "month": "2024-12", "subcategory": "Average Duration", "count": 11.049911396761134, "category": "Average Duration" }] } }
             try {
                 vegaEmbed("#viz1-container", spec, {
                     actions: true,
@@ -152,16 +205,17 @@
                     padding: { left: 5, top: 5, right: 3, bottom: 20 }
                 }).catch(error => {
                     console.error("Error embedding visualization:", error);
-                    document.getElementById("viz1-container").innerHTML = 
+                    document.getElementById("viz1-container").innerHTML =
                         '<p class="error">Error embedding visualization. See console for details.</p>';
                 });
             } catch (error) {
                 console.error("Vega Embed error:", error);
-                document.getElementById("viz1-container").innerHTML = 
+                document.getElementById("viz1-container").innerHTML =
                     '<p class="error">Vega Embed error. See console for details.</p>';
             }
         });
     </script>
 
 </body>
+
 </html>
