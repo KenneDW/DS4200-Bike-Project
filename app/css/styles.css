@@ -1,9 +1,9 @@
 /* styles.css */
 :root {
-    --blue-bright: #0076c0; /* Bright blue (bike frame) */
-    --blue-dark: #003b71; /* Deep navy (used in branding) */
-    --accent-yellow: #ffc20e; /* Small accent shapes */
-    --light-gray: #f4f4f4; /* Neutral card backgrounds */
+    --blue-bright: #0076c0; 
+    --blue-dark: #003b71; 
+    --accent-yellow: #ffc20e; 
+    --light-gray: #f4f4f4; 
     --white: #ffffff;
     --text-dark: #1a1a1a;
   }
@@ -12,6 +12,7 @@
   h2,
   h3 {
     font-family: "Merriweather", serif;
+    text-align: center;
   }
   
   body {
@@ -20,8 +21,7 @@
     background-color: var(--light-gray);
     color: var(--blue-dark);
   }
-  
-  /* Navbar container */
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -77,7 +77,7 @@
     border: 1px solid #ddd;
     border-radius: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: left;
   }
   
   @media (max-width: 768px) {
