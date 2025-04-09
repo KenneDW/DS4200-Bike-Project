@@ -59,7 +59,12 @@
         <div class="card">
             <section class="data-intro">
                 <h2>Introducing the data</h2>
-                <p>size, source, attributes, etc.</p>
+                <p>For our research, we decided to retrieve our data straight from the Bluebike website, which provides comprehensive trip information for every month since 2016. To keep our analysis focused and up to date, we used only the months of April, September, and December of 2024, representing three different points in the school year. To support our mapping visualizations, we retrieved a shapefile for Massachusetts from the official Massachusetts government website. 
+                    <br><br>
+                    For our Bluebike data, each month contains approximately 600,000 rows of data. However, as we are only wanting to study Northeastern University usage, we filtered the data by only keeping the stops going to or from our campus. In doing this we were able to get one dataset that combined each month down to only 17,000 rows.
+                    <br><br>
+                    Regarding the attributes of our data, we were given an extensive list of features for analysis. Each file contains the start and end points (coordinates, ID, name), time taken, member type, bike type, and the trip ID. These features provided a solid foundation that allowed us to further investigate how the Northeastern community utilizes Bluebikes throughout the academic year.
+                    </p>
             </section>
         </div>
         <div class="card">
@@ -67,9 +72,14 @@
                 <h3>Visualization 1</h3>
                 <div id="viz1-container" class="visualization-container"></div>
                 <p class="viz-description">
-                    This visualization shows monthly trip data across different categories. 
-                    Use the dropdown menu to switch between Bike Type, Member Type, and Average Duration.
-                    The interactive chart allows you to explore patterns in bike usage over time.
+                    From this visualization, we just wanted to get a general feel for how each attribute was different for each of the three months.
+                     Starting by analyzing the chart looking at member types, we can see that casual users by far had the largest amount of trips, with the highest overall
+                      amount of trips being in September. April followed with a moderate amount of usage, and December had a major drop, which we believe we can attribute
+                       to the influx of cold weather and winter break. From the visualization showing the bike types, we can see that people overwhelmingly favored the classic
+                        bikes over the electric bikes in each of the months without much of a change in the ratio. Finally, when looking at the average ride duration for each
+                         of the months we can see that the time was fairly consistent throughout each of them. There was a slight decline in December at an average of ten minutes
+                          as opposed to the twelve in April and September, which we again believe we can attribute to the colder weather. Overall, this data showed us that there was
+                           a strong difference in usage between the seasons and that there is a preference in bike and member types.
                 </p>
             </section>
         </div>
