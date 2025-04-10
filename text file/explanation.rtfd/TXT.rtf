@@ -1,0 +1,56 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red3\green43\blue94;\red255\green255\blue255;\red21\green23\blue26;
+\red20\green20\blue20;}
+{\*\expandedcolortbl;;\cssrgb\c0\c23137\c44314;\cssrgb\c100000\c100000\c100000;\cssrgb\c10588\c11765\c13725;
+\cssrgb\c10196\c10196\c10196;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa398\qc\partightenfactor0
+
+\f0\fs48 \cf2 \cb3 \expnd0\expndtw0\kerning0
+Website Link: {\field{\*\fldinst{HYPERLINK "https://kennedw.github.io/DS4200-Bike-Project/"}}{\fldrslt https://kennedw.github.io/DS4200-Bike-Project/}}\
+Group Members: \
+Jack Carroll\
+Michael Maaseide\
+\
+Introducing the data\cb1 \
+\pard\pardeftab720\sa320\partightenfactor0
+
+\fs32 \cf2 \cb3 For our research, we decided to retrieve our data straight from the Bluebike website, which provides comprehensive trip information for every month since 2016. To keep our analysis focused and up to date, we used only the months of April, September, and December of 2024, representing three different points in the school year. To support our mapping visualizations, we retrieved a shapefile for Massachusetts from the official Massachusetts government website. \cb1 \uc0\u8232 \u8232 \cb3 For our Bluebike data, each month contains approximately 600,000 rows of data. However, as we are only wanting to study Northeastern University usage, we filtered the data by only keeping the stops going to or from our campus. In doing this we were able to get one dataset that combined each month down to only 17,000 rows. \cb1 \uc0\u8232 \u8232 \cb3 Regarding the attributes of our data, we were given an extensive list of features for analysis. Each file contains the start and end points (coordinates, ID, name), time taken, member type, bike type, and the trip ID. These features provided a solid foundation that allowed us to further investigate how the Northeastern community utilizes Bluebikes throughout the academic year.\cb1 \
+\pard\pardeftab720\sa374\qc\partightenfactor0
+
+\fs37\fsmilli18720 \cf2 \cb3 Visualization 1
+\fs32 \cf4 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\fs30\fsmilli15200 \cf5 From this visualization, we just wanted to get a general feel for how each attribute was different for each of the three months. Starting by analyzing the chart looking at member types, we can see that casual users by far had the largest amount of trips, with the highest overall amount of trips being in September. April followed with a moderate amount of usage, and December had a major drop, which we believe we can attribute to the influx of cold weather and winter break. From the visualization showing the bike types, we can see that people overwhelmingly favored the classic bikes over the electric bikes in each of the months without much of a change in the ratio. Finally, when looking at the average ride duration for each of the months we can see that the time was fairly consistent throughout each of them. There was a slight decline in December at an average of ten minutes as opposed to the twelve in April and September, which we again believe we can attribute to the colder weather. Overall, this data showed us that there was a strong difference in usage between the seasons and that there is a preference in bike and member types.\cb1 \
+\pard\pardeftab720\sa374\qc\partightenfactor0
+
+\fs37\fsmilli18720 \cf2 \cb3 Visualization 2\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs30\fsmilli15200 \cf5 \cb3 These two maps showcase all of the trips made to and from the ruggles station in the time window we examined. The first map shows the trips made originating at the ruggles station, while the second map shows the trips made that ended at the ruggles station. The points indicate stations, with the color of the points encoded according to the number of trips originating from/ending at that station, logarithmically scaled. The outgoing map shows that most activity is clustered around the ruggles station, indicating shorter trips overall to neighborhoods like Fenway, Back Bay, and Jamaica Plain. The incoming map shows rides being much more evenly distriubted across the city, with some closeby stations still having the the most activity. One possible explanantion of this trend is the fact that ruggles is a transportation hub, with connections to the orange line, commuter rail, and many bus routes. People taking bluebikes to ruggles may be using them as a part of a longer trip.\cb1 \
+\pard\pardeftab720\sa374\qc\partightenfactor0
+
+\fs37\fsmilli18720 \cf2 \cb3 Visualization 3
+\fs24 \cb1 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\fs30\fsmilli15200 \cf5 \cb3 This chart indicates the amount of rides starting in each hour of the day, over the course an entire month for the Ruggles station. The x-axis shows the hour of the day, while the y-axis shows the number of rides starting at that hour. This chart once again gives persepctive on the difference in quantity of rides between the months we are examining with drastic differneces between them. The main trend demonstrated by this chart is the peak times of day by quantity of rides. There are consistent peaks across all three months between the hours of 7 and 9 in the morning, and 4 and 6 in the evening. This indicates that the majority of rides are being taken during commuting hours, despite the fact that the station is located near a college campus where most people typically don't need to commute. The commuting trend still being present could be due to factors such as Northeastern's co-op program, or the nearby orange line and residential areas making the station a popular stop for commuters.\cb1 \
+\pard\pardeftab720\sa374\qc\partightenfactor0
+
+\fs37\fsmilli18720 \cf2 \cb3 Visualization 4
+\fs32 \cb1 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\fs30\fsmilli15200 \cf5 \cb3 This boxplot we created compares the Manhattan distance calculated between the start and end stops of each trip traveled by electric and classic Bluebikes in each of our research months. Looking at the data from April, we can see that the trips are generally shorter and fairly consistent, with electric bikes having a larger range with more variation than their classic counter parts. In the month of September, we see the largest general trip length as well as variability, with the electric bikes haviung the largest number of high outliers. Finally, looking at the trips in December, they are slightly shorter than the other months of interest and generally have more uniform distances between both of the bike types. Just as with the previous graphs we will attribute this decrease to the colder weather as compared to the other months. From this visualization, we were able to learn how overall, electric bikes tend to support longer and more variable ride distances when compared with classic bikes.\cb1 \
+\pard\pardeftab720\sa374\qc\partightenfactor0
+
+\fs37\fsmilli18720 \cf2 \cb3 Visualization 5\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+\pard\pardeftab720\sa304\partightenfactor0
+
+\fs30\fsmilli15200 \cf5 \cb3 This heatmap was chosen to uncover when during the week Bluebike usage is most concentrated, providing a temporal lens to complement our spatial and demographic analyses. By breaking rides down by hour and day, and enabling filtering by month, this visualization reveals distinct commuter behavior patterns and seasonal fluctuations. For instance, September shows pronounced morning and evening spikes on weekdays\'97consistent with school and work commutes\'97while April and December exhibit more diffuse or weather-dependent patterns. This interaction helps contextualize ride volume changes within daily life rhythms, offering insights into infrastructure usage and rider intent beyond aggregate trip counts.}
