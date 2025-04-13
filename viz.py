@@ -19,32 +19,35 @@ def plt1():
     member_type_counts['category'] = 'Member Type'
     member_type_counts = member_type_counts.rename(columns={'member_casual': 'subcategory'})
 
-    avg_duration = data.groupby('month')['duration'].mean().reset_index(name='count')
-    avg_duration['category'] = 'Average Duration'
-    avg_duration['subcategory'] = 'Average Duration'
 
     # Combine all into one DataFrame and removing random august month
-    combined_df = pd.concat([bike_type_counts, member_type_counts, avg_duration], ignore_index=True)
+    combined_df = pd.concat([bike_type_counts, member_type_counts], ignore_index=True)
     combined_df = combined_df[combined_df['month'] != '2024-08']
 
-    # Dropdown param (Altair v5)
+    combined_df['percent'] = combined_df.groupby(['month', 'category'])['count'].transform(lambda x: x / x.sum() * 100)
+    combined_df['percent'] = combined_df['percent'].round(1)
+
+    # dropdown
     category_selector = alt.param(
         name='CategorySelector',
         bind=alt.binding_select(
-            options=['Bike Type', 'Member Type', 'Average Duration'],
+            options=['Bike Type', 'Member Type'],
             name='Y Axis: '
         ),
-        value='Bike Type'
-    )
+        value='Bike Type')
 
-    # Create the chart
+    # [;pt ]
     chart = alt.Chart(combined_df).transform_filter(
         alt.datum.category == category_selector
     ).mark_bar().encode(
         x=alt.X('month:N', title='Month', axis=alt.Axis(labelAngle=-40)),
-        y=alt.Y('count:Q', title='Count'),  # Default title (won't dynamically update)
+        y=alt.Y('count:Q', title='Count'),
         color=alt.Color('subcategory:N', title='Subcategory', scale=alt.Scale(scheme='pastel1')),
-        tooltip=['month', 'subcategory', 'count']
+        tooltip=[
+            alt.Tooltip('month:N'),
+            alt.Tooltip('subcategory:N'),
+            alt.Tooltip('count:Q', format=','),
+            alt.Tooltip('percent:Q', title='Percent', format='.1f')]
     ).add_params(
         category_selector
     ).properties(
@@ -157,7 +160,5 @@ def plt5():
 
 def main():
     plt1()
-    plt4()
-    plt5()
 if __name__ == "__main__":
     main()
