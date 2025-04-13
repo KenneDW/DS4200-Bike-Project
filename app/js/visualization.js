@@ -82,7 +82,7 @@ svg.append("path")
 svg.append("path")
     .datum(month_12_data)
     .attr("fill", "none")
-    .attr("stroke", "rgb(250, 241, 133)")
+    .attr("stroke", "rgb(72, 182, 81)")
     .attr("stroke-width", 2)
     .attr("d", line);
 
@@ -121,7 +121,7 @@ legend.append("rect")
     .attr("y", 30)
     .attr("width", 30)
     .attr("height", 10)
-    .attr("fill", "rgb(250, 241, 133)");
+    .attr("fill", "rgb(72, 182, 81)");
 legend.append("text")
     .attr("x", 40)
     .attr("y", 35)
